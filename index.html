@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Himanshu | B.Sc. Student &amp; Aspiring Web Developer</title>
+  <meta name="description" content="Portfolio of Himanshu, a B.Sc. student and aspiring web developer learning HTML, CSS, JavaScript and Python, with ADCA computer training and Office skills.">
+  <meta name="author" content="Himanshu">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="Himanshu | Aspiring Web Developer">
+  <meta property="og:description" content="B.Sc. student building practical computer and web skills. Explore my learning projects.">
+  <meta property="og:type" content="website">
+  <!-- Simple inline icon so the browser does not look for a missing favicon file -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e1a'/%3E%3Ctext x='32' y='44' font-size='36' font-family='Georgia' font-weight='700' text-anchor='middle' fill='%234d7cff'%3EH%3C/text%3E%3C/svg%3E">
+  <style>
+/* ==========================================================
+   style.css  -  Himanshu's portfolio
+   Tip: change the colours below to restyle the whole site.
+   ========================================================== */
+
+:root {
+  --bg: #0a0e1a;          /* page background (near-black navy) */
+  --bg-alt: #0e1325;      /* alternate section background */
+  --card: #121933;        /* card background */
+  --border: #232c4d;      /* subtle borders */
+  --text: #f2f5ff;        /* main text */
+  --muted: #a6b0d0;       /* softer text (still readable) */
+  --accent: #5b8cff;      /* electric blue */
+  --accent-2: #8b6cff;    /* violet */
+  --good: #6ee7b7;        /* "Know" tag */
+  --radius: 16px;
+  --max: 1080px;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: var(--accent); }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+p { margin: 0 0 1em; }
+
+:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -60px;
+  background: var(--accent); color: #fff; padding: 10px 16px;
+  border-radius: 8px; z-index: 200; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Header & navigation (mobile first) ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10, 14, 26, .92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.brand { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; }
+.dot { color: var(--accent); }
+
+.nav-toggle {
+  width: 46px; height: 46px; display: grid; place-content: center; gap: 5px;
+  background: transparent; border: 1px solid var(--border); border-radius: 12px; cursor: pointer;
+}
+.nav-toggle .bar { display: block; width: 22px; height: 2px; background: var(--text); transition: transform .25s, opacity .25s; }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.site-nav {
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  display: none; padding: 8px 20px 18px;
+}
+.site-nav.open { display: block; }
+.site-nav a {
+  display: block; padding: 14px 4px; color: var(--text); text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.site-nav a:hover { color: var(--accent); }
+.site-nav .nav-cta { margin-top: 14px; text-align: center; background: var(--accent); color: #fff; border: 0; border-radius: 999px; }
+.site-nav .nav-cta:hover { color: #fff; background: #4a78e8; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; padding: 13px 24px; border-radius: 999px; font: inherit; font-weight: 600;
+  text-decoration: none; cursor: pointer; border: 1px solid transparent;
+  transition: transform .2s, background .2s, border-color .2s;
+}
+.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost { border-color: var(--border); color: var(--text); }
+.btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+.button-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 72px 0 64px;
+  background: radial-gradient(600px 300px at 80% 0%, rgba(139, 108, 255, .18), transparent 70%);
+}
+.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
+.hero h1 { font-family: var(--serif); font-size: clamp(2rem, 8vw, 3.6rem); max-width: 18ch; }
+.accent { color: var(--accent); }
+.lead { color: var(--muted); font-size: 1.1rem; max-width: 56ch; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.hero-tags li { border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: .85rem; color: var(--muted); }
+
+/* ---------- Sections ---------- */
+.section { padding: 72px 0; }
+.section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section-label { color: var(--accent-2); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.section h2 { font-family: var(--serif); font-size: clamp(1.7rem, 5vw, 2.4rem); }
+.section-intro { color: var(--muted); max-width: 62ch; margin-bottom: 32px; }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+
+/* ---------- Cards & grids ---------- */
+.grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; transition: transform .25s, border-color .25s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card h3 { font-size: 1.2rem; }
+
+.about-grid { display: grid; gap: 28px; grid-template-columns: 1fr; margin-top: 12px; }
+.fact-card dl { margin: 0; }
+.fact-card dt { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; margin-top: 14px; }
+.fact-card dd { margin: 2px 0 0; font-weight: 600; }
+
+/* Skills */
+.skill-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.skill-list li:last-child { border-bottom: 0; }
+.tag, .legend {
+  font-style: normal; font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+.tag.know, .legend.know { background: rgba(110, 231, 183, .12); color: var(--good); border: 1px solid rgba(110, 231, 183, .4); }
+.tag.learn, .legend.learn { background: rgba(139, 108, 255, .14); color: #c4b5ff; border: 1px solid rgba(139, 108, 255, .5); }
+
+/* Projects */
+.project { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.project-visual {
+  min-height: 160px; display: grid; place-items: center; color: var(--text);
+  font-size: .9rem; letter-spacing: .04em; border-bottom: 1px solid var(--border);
+  background-size: 22px 22px;
+}
+.project-visual span { background: rgba(10, 14, 26, .75); padding: 6px 14px; border-radius: 999px; border: 1px dashed var(--border); }
+.v1 { background-color: #151b3d; background-image: linear-gradient(rgba(91,140,255,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(91,140,255,.14) 1px, transparent 1px); }
+.v2 { background-color: #1a1538; background-image: linear-gradient(rgba(139,108,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(139,108,255,.16) 1px, transparent 1px); }
+.v3 { background-color: #10202a; background-image: linear-gradient(rgba(110,231,183,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(110,231,183,.12) 1px, transparent 1px); }
+.project-body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.badge { display: inline-block; font-size: .75rem; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.project-link { margin-top: auto; padding-top: 6px; }
+.project-link .btn { padding: 9px 18px; font-size: .9rem; }
+.link-soon { color: var(--muted); font-size: .88rem; }
+
+/* Learning */
+.learning-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+.learning-grid li { display: flex; flex-direction: column; gap: 4px; padding: 18px; }
+.learning-grid span { color: var(--muted); font-size: .88rem; }
+
+/* Contact */
+.contact-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.contact-email { font-size: 1.1rem; word-break: break-all; }
+.social-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.social-list a { display: inline-block; padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--text); }
+.social-list a:hover { border-color: var(--accent); }
+
+label { display: block; margin: 14px 0 6px; font-weight: 600; font-size: .92rem; }
+input, textarea {
+  width: 100%; padding: 12px 14px; font: inherit; color: var(--text);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+}
+input:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(91, 140, 255, .35); }
+.form-error { color: #ffb4b4; min-height: 1.4em; margin: 10px 0; font-size: .9rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { padding: 40px 0; border-top: 1px solid var(--border); }
+.footer-inner { display: grid; gap: 16px; }
+.footer-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin: 0; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.footer-links a { color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+.copy { color: var(--muted); font-size: .88rem; margin: 0; }
+
+/* ---------- Scroll reveal (only active when JavaScript runs) ---------- */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+/* ---------- Tablet & up ---------- */
+@media (min-width: 700px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1.6fr 1fr; }
+  .learning-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: auto 1fr auto; align-items: center; }
+  .footer-links { justify-content: center; }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 900px) {
+  .nav-toggle { display: none; }
+  .site-nav { position: static; display: block; background: transparent; border: 0; padding: 0; }
+  .site-nav ul { display: flex; align-items: center; gap: 6px; }
+  .site-nav a { border: 0; padding: 8px 14px; border-radius: 999px; }
+  .site-nav .nav-cta { margin: 0 0 0 8px; padding: 8px 18px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .hero { padding: 110px 0 96px; }
+  .section { padding: 96px 0; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Himanshu, back to top">Himanshu<span class="dot">.</span></a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#learning">Learning</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow reveal">B.Sc. Student &middot; Aspiring Web Developer</p>
+        <h1 id="hero-title" class="reveal">Hi, I'm Himanshu. I'm learning to build <span class="accent">useful things</span> with code.</h1>
+        <p class="lead reveal">I'm a science student with a computer science minor and an ADCA qualification. I'm growing my skills in Office tools, web development and Python, one project at a time.</p>
+        <div class="button-row reveal">
+          <a class="btn btn-primary" href="#projects">Explore My Projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+        </div>
+        <ul class="hero-tags reveal" aria-label="Quick facts">
+          <li>Open to learning opportunities</li>
+          <li>Internships &amp; entry-level roles</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="section-label">01 / About</p>
+        <h2 id="about-title" class="reveal">About me</h2>
+        <div class="about-grid">
+          <div class="reveal">
+            <p>I'm a B.Sc. student studying Zoology and Botany, with Computer Science as a minor subject. Alongside my degree, I completed an ADCA (Advanced Diploma in Computer Applications), which gave me a solid base in everyday computer use.</p>
+            <p>Computers have become the part of my studies I enjoy the most. I use Microsoft Office regularly, I understand the basics of Tally, and I'm now learning HTML, CSS, JavaScript and Python so I can create real websites and small programs.</p>
+            <p>I'm at the beginning of my professional journey, and I'm honest about that. My goal is to turn what I learn into practical skills that help a team, and to keep improving with every project.</p>
+          </div>
+          <aside class="card fact-card reveal" aria-label="Quick profile">
+            <h3>Quick profile</h3>
+            <dl>
+              <dt>Studying</dt><dd>B.Sc. (Zoology, Botany)</dd>
+              <dt>Minor</dt><dd>Computer Science</dd>
+              <dt>Qualification</dt><dd>ADCA</dd>
+              <dt>Focus</dt><dd>Web development &amp; office productivity</dd>
+              <dt>Stage</dt><dd>Student, building a first portfolio</dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="section-label">02 / Skills</p>
+        <h2 id="skills-title" class="reveal">Skills</h2>
+        <p class="section-intro reveal">Skills I already use are marked <span class="legend know">Know</span>. Technologies I'm still studying are marked <span class="legend learn">Learning</span>.</p>
+
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <h3>Office &amp; Productivity</h3>
+            <ul class="skill-list">
+              <li><span>MS Word</span><em class="tag know">Know</em></li>
+              <li><span>MS Excel</span><em class="tag know">Know</em></li>
+              <li><span>MS PowerPoint</span><em class="tag know">Know</em></li>
+              <li><span>MS Access</span><em class="tag know">Know</em></li>
+              <li><span>Basic computer operations</span><em class="tag know">Know</em></li>
+              <li><span>Tally (basics)</span><em class="tag know">Know</em></li>
+              <li><span>Practical Excel</span><em class="tag learn">Learning</em></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Web Development</h3>
+            <ul class="skill-list">
+              <li><span>HTML</span><em class="tag learn">Learning</em></li>
+              <li><span>CSS</span><em class="tag learn">Learning</em></li>
+              <li><span>JavaScript</span><em class="tag learn">Learning</em></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Programming</h3>
+            <ul class="skill-list">
+              <li><span>Python</span><em class="tag learn">Learning</em></li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Digital &amp; AI Tools</h3>
+            <ul class="skill-list">
+              <li><span>AI tools for learning</span><em class="tag know">Know</em></li>
+              <li><span>AI-assisted website creation</span><em class="tag know">Know</em></li>
+              <li><span>Communication</span><em class="tag know">Know</em></li>
+              <li><span>Willingness to learn</span><em class="tag know">Know</em></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="section-label">03 / Projects</p>
+        <h2 id="projects-title" class="reveal">Projects</h2>
+        <p class="section-intro reveal">These are personal learning projects, not paid client work. Links and screenshots will be added when they are ready.</p>
+
+        <div class="grid grid-3">
+          <article class="card project reveal" data-project="surpriseweb">
+            <div class="project-visual v1" role="img" aria-label="Placeholder artwork for SurpriseWeb">
+              <span>Screenshot coming soon</span>
+            </div>
+            <div class="project-body">
+              <p class="badge">Personal project &middot; Built with AI assistance</p>
+              <h3>SurpriseWeb</h3>
+              <p>A personal project for creating surprise websites, built with the help of AI tools. It is helping me understand how a web page is structured and how an idea becomes a working site.</p>
+              <div class="project-link" data-link-slot></div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-project="portfolio">
+            <div class="project-visual v2" role="img" aria-label="Placeholder artwork for the portfolio website">
+              <span>This website</span>
+            </div>
+            <div class="project-body">
+              <p class="badge">Learning project &middot; Plain HTML, CSS &amp; JavaScript</p>
+              <h3>Personal Portfolio Website</h3>
+              <p>The site you are reading now. It is built with plain HTML, CSS and JavaScript and designed to work well on phones, tablets and computers.</p>
+              <div class="project-link" data-link-slot></div>
+            </div>
+          </article>
+
+          <article class="card project reveal" data-project="excel">
+            <div class="project-visual v3" role="img" aria-label="Placeholder artwork for Excel practice projects">
+              <span>Coming soon</span>
+            </div>
+            <div class="project-body">
+              <p class="badge">Planned &middot; Practice exercises</p>
+              <h3>Excel Practice Projects</h3>
+              <p>A future collection of spreadsheet exercises and office-productivity demonstrations. Nothing is published here yet; I will add real examples as I complete them.</p>
+              <div class="project-link" data-link-slot></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section alt" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <p class="section-label">04 / Education</p>
+        <h2 id="education-title" class="reveal">Education</h2>
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <p class="badge">Currently studying</p>
+            <h3>B.Sc. (Bachelor of Science)</h3>
+            <p>Major subjects: Zoology and Botany.<br>Minor subject: Computer Science.</p>
+          </article>
+          <article class="card reveal">
+            <p class="badge">Computer training</p>
+            <h3>ADCA</h3>
+            <p>Advanced Diploma in Computer Applications, covering practical computer and office skills.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENTLY LEARNING -->
+    <section class="section" id="learning" aria-labelledby="learning-title">
+      <div class="container">
+        <p class="section-label">05 / Learning</p>
+        <h2 id="learning-title" class="reveal">Currently learning</h2>
+        <p class="section-intro reveal">The things I'm practising right now.</p>
+        <ul class="learning-grid">
+          <li class="card reveal"><strong>HTML</strong><span>Structuring web pages</span></li>
+          <li class="card reveal"><strong>CSS</strong><span>Layout and design</span></li>
+          <li class="card reveal"><strong>JavaScript</strong><span>Making pages interactive</span></li>
+          <li class="card reveal"><strong>Python</strong><span>Programming basics</span></li>
+          <li class="card reveal"><strong>Practical Excel</strong><span>Real-world spreadsheets</span></li>
+          <li class="card reveal"><strong>AI-assisted development</strong><span>Building with AI tools</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="section-label">06 / Contact</p>
+        <h2 id="contact-title" class="reveal">Get in touch</h2>
+        <p class="section-intro reveal">I'm happy to hear about internships, entry-level roles, or collaboration on learning projects.</p>
+
+        <div class="contact-grid">
+          <div class="card reveal">
+            <h3>Email</h3>
+            <div id="contactEmail" aria-live="polite">
+              <p class="muted">Contact details will appear here soon.</p>
+            </div>
+            <ul class="social-list" id="socialLinks" aria-label="Social links"></ul>
+          </div>
+
+          <form class="card reveal" id="contactForm" novalidate hidden>
+            <h3>Write a message</h3>
+            <p class="muted small">This opens your own email app with the message filled in. Nothing is sent from this website.</p>
+            <label for="cfName">Your name</label>
+            <input id="cfName" name="name" type="text" autocomplete="name" required>
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" rows="5" required></textarea>
+            <p class="form-error" id="formError" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Open in email app</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-name">Himanshu<span class="dot">.</span></p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <p class="copy">&copy; <span id="year">2026</span> Himanshu. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+/* ==========================================================
+   script.js  -  Himanshu's portfolio
+   =====================================================
+   EDIT ONLY THE "SETTINGS" BLOCK BELOW.
+   Leave a value as "" (empty quotes) to keep it hidden.
+   ========================================================== */
+
+const SETTINGS = {
+  // Your real email address, for example "name@gmail.com".
+  // While this is empty, no email is shown on the website.
+  email: "itx.himanshu0812@gmail.com",
+
+  // Optional social links. Paste the full address, starting with https://
+  // Leave "" to hide a link.
+  linkedin: "",
+  github: "",
+
+  // Project links. Add a real address only when the project is online.
+  // While a value is "", the card shows "Link coming soon".
+  projects: {
+    surpriseweb: "",
+    portfolio: "",
+    excel: ""
+  }
+};
+
+/* ==========================================================
+   Code below runs the website. You do not need to change it.
+   ========================================================== */
+
+(function () {
+  "use strict";
+
+  // Tell the CSS that JavaScript is working (enables scroll animations).
+  document.documentElement.classList.add("js");
+
+  // ---------- Helpers ----------
+  function isValidEmail(value) {
+    return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  }
+
+  function isValidUrl(value) {
+    return typeof value === "string" && /^https?:\/\/[^\s]+\.[^\s]+$/i.test(value.trim());
+  }
+
+  // ---------- Footer year ----------
+  var yearEl = document.getElementById("year");
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+  // ---------- Mobile navigation ----------
+  var toggle = document.getElementById("navToggle");
+  var nav = document.getElementById("siteNav");
+
+  function setMenu(open) {
+    if (!toggle || !nav) { return; }
+    nav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    // Close the menu after tapping a link.
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) { setMenu(false); }
+    });
+
+    // Close with the Escape key.
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") { setMenu(false); toggle.focus(); }
+    });
+
+    // Close if the screen becomes wide (desktop layout).
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 900) { setMenu(false); }
+    });
+  }
+
+  // ---------- Project links ----------
+  var cards = document.querySelectorAll("[data-project]");
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var slot = card.querySelector("[data-link-slot]");
+    var url = SETTINGS.projects[card.getAttribute("data-project")];
+    if (!slot) { continue; }
+
+    if (isValidUrl(url)) {
+      var link = document.createElement("a");
+      link.className = "btn btn-ghost";
+      link.href = url.trim();
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "View project";
+      slot.appendChild(link);
+    } else {
+      var note = document.createElement("span");
+      note.className = "link-soon";
+      note.textContent = "Link coming soon";
+      slot.appendChild(note);
+    }
+  }
+
+  // ---------- Contact section ----------
+  var emailBox = document.getElementById("contactEmail");
+  var form = document.getElementById("contactForm");
+  var socials = document.getElementById("socialLinks");
+  var hasEmail = isValidEmail(SETTINGS.email);
+
+  if (hasEmail && emailBox) {
+    var email = SETTINGS.email.trim();
+    emailBox.textContent = "";
+    var emailLink = document.createElement("a");
+    emailLink.className = "contact-email";
+    emailLink.href = "mailto:" + email;
+    emailLink.textContent = email;
+    emailBox.appendChild(emailLink);
+  }
+
+  if (socials) {
+    var items = [
+      { label: "LinkedIn", url: SETTINGS.linkedin },
+      { label: "GitHub", url: SETTINGS.github }
+    ];
+    items.forEach(function (item) {
+      if (!isValidUrl(item.url)) { return; }
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = item.url.trim();
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = item.label;
+      li.appendChild(a);
+      socials.appendChild(li);
+    });
+  }
+
+  // The message form only appears when a real email is set.
+  // It opens the visitor's own email app; it does not send anything by itself.
+  if (form && hasEmail) {
+    form.hidden = false;
+    var errorEl = document.getElementById("formError");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = document.getElementById("cfName").value.trim();
+      var message = document.getElementById("cfMessage").value.trim();
+
+      if (!name || !message) {
+        errorEl.textContent = "Please fill in your name and a message.";
+        return;
+      }
+      errorEl.textContent = "";
+
+      var subject = "Portfolio message from " + name;
+      var body = message + "\n\n- " + name;
+      window.location.href = "mailto:" + SETTINGS.email.trim() +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  }
+
+  // ---------- Scroll reveal animation ----------
+  var revealItems = document.querySelectorAll(".reveal");
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!("IntersectionObserver" in window) || reduceMotion) {
+    for (var j = 0; j < revealItems.length; j++) { revealItems[j].classList.add("visible"); }
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(function (el) { observer.observe(el); });
+  }
+})();
+
+</script>
+</body>
+</html>
